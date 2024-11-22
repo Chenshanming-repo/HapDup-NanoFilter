@@ -1,0 +1,712 @@
+2024-05-17 21:42:46,282 - root - INFO - [main.py:166] - Skipped filtering phase
+[2024-05-17 21:42:46] INFO: Skipped filtering phase
+2024-05-17 21:42:46,298 - root - INFO - [main.py:181] - Skipped pepper phase
+[2024-05-17 21:42:46] INFO: Skipped pepper phase
+2024-05-17 21:42:46,298 - root - INFO - [main.py:219] - gzip /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf
+[2024-05-17 21:42:46] INFO: gzip /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf
+2024-05-17 21:42:47,171 - root - INFO - [main.py:233] - Use consistency filter
+[2024-05-17 21:42:47] INFO: Use consistency filter
+2024-05-17 21:42:47,175 - root - INFO - [main.py:244] - Running: /public/home/hpc224712204/software/HapCUT2/build/extractHAIRS --indels 1 --ont 1 --bam /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam --VCF /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf --out /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/tmp/fragment_file --ref /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/hapcut2.log (filtering)
+[2024-05-17 21:42:47] INFO: Running: /public/home/hpc224712204/software/HapCUT2/build/extractHAIRS --indels 1 --ont 1 --bam /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam --VCF /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf --out /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/tmp/fragment_file --ref /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/hapcut2.log (filtering)
+
+Extracting haplotype informative reads from bamfiles /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam minQV 4 minMQ 20 maxIS 1000 
+
+VCF file /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf has 292122 variants 
+adding chrom contig_10 to index 
+adding chrom contig_100 to index 
+adding chrom contig_102 to index 
+adding chrom contig_107 to index 
+adding chrom contig_108 to index 
+adding chrom contig_114 to index 
+adding chrom contig_115 to index 
+adding chrom contig_117 to index 
+adding chrom contig_118 to index 
+adding chrom contig_119 to index 
+adding chrom contig_120 to index 
+adding chrom contig_121 to index 
+adding chrom contig_128 to index 
+adding chrom contig_130 to index 
+adding chrom contig_133 to index 
+adding chrom contig_134 to index 
+adding chrom contig_136 to index 
+adding chrom contig_137 to index 
+adding chrom contig_14 to index 
+adding chrom contig_141 to index 
+adding chrom contig_144 to index 
+adding chrom contig_149 to index 
+adding chrom contig_15 to index 
+adding chrom contig_150 to index 
+adding chrom contig_153 to index 
+adding chrom contig_154 to index 
+adding chrom contig_157 to index 
+adding chrom contig_158 to index 
+adding chrom contig_159 to index 
+adding chrom contig_160 to index 
+adding chrom contig_164 to index 
+adding chrom contig_165 to index 
+adding chrom contig_166 to index 
+adding chrom contig_168 to index 
+adding chrom contig_170 to index 
+adding chrom contig_172 to index 
+adding chrom contig_177 to index 
+adding chrom contig_20 to index 
+adding chrom contig_25 to index 
+adding chrom contig_3 to index 
+adding chrom contig_33 to index 
+adding chrom contig_34 to index 
+adding chrom contig_38 to index 
+adding chrom contig_4 to index 
+adding chrom contig_40 to index 
+adding chrom contig_41 to index 
+adding chrom contig_42 to index 
+adding chrom contig_43 to index 
+adding chrom contig_44 to index 
+adding chrom contig_45 to index 
+adding chrom contig_46 to index 
+adding chrom contig_47 to index 
+adding chrom contig_5 to index 
+adding chrom contig_50 to index 
+adding chrom contig_53 to index 
+adding chrom contig_57 to index 
+adding chrom contig_6 to index 
+adding chrom contig_63 to index 
+adding chrom contig_64 to index 
+adding chrom contig_65 to index 
+adding chrom contig_66 to index 
+adding chrom contig_7 to index 
+adding chrom contig_72 to index 
+adding chrom contig_74 to index 
+adding chrom contig_75 to index 
+adding chrom contig_76 to index 
+adding chrom contig_78 to index 
+adding chrom contig_81 to index 
+adding chrom contig_83 to index 
+adding chrom contig_85 to index 
+adding chrom contig_87 to index 
+adding chrom contig_91 to index 
+adding chrom contig_97 to index 
+vcffile /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf chromosomes 73 hetvariants 227152 variants 292122 
+detected 2605 variants with two non-reference alleles, these variants will not be phased
+
+##########################################################################################
+73 chromosomes/contigs detected in input VCF file
+processing each contig separately using --regions option will be more efficient for large genomes
+############################################################################################
+
+reading fasta index file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta.fai ... fasta file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta has 81 chromosomes/contigs
+
+contig contig_1 length 3396
+found match for reference contig contig_10 in VCF file index 
+contig contig_10 length 67943
+found match for reference contig contig_100 in VCF file index 
+contig contig_100 length 29313
+found match for reference contig contig_102 in VCF file index 
+contig contig_102 length 103084
+found match for reference contig contig_107 in VCF file index 
+contig contig_107 length 18156
+found match for reference contig contig_108 in VCF file index 
+found match for reference contig contig_114 in VCF file index 
+found match for reference contig contig_115 in VCF file index 
+found match for reference contig contig_117 in VCF file index 
+found match for reference contig contig_118 in VCF file index 
+found match for reference contig contig_119 in VCF file index 
+found match for reference contig contig_120 in VCF file index 
+found match for reference contig contig_121 in VCF file index 
+found match for reference contig contig_128 in VCF file index 
+found match for reference contig contig_130 in VCF file index 
+found match for reference contig contig_133 in VCF file index 
+found match for reference contig contig_134 in VCF file index 
+found match for reference contig contig_136 in VCF file index 
+found match for reference contig contig_137 in VCF file index 
+found match for reference contig contig_14 in VCF file index 
+found match for reference contig contig_141 in VCF file index 
+found match for reference contig contig_144 in VCF file index 
+found match for reference contig contig_149 in VCF file index 
+found match for reference contig contig_15 in VCF file index 
+found match for reference contig contig_150 in VCF file index 
+found match for reference contig contig_153 in VCF file index 
+found match for reference contig contig_154 in VCF file index 
+found match for reference contig contig_157 in VCF file index 
+found match for reference contig contig_158 in VCF file index 
+found match for reference contig contig_159 in VCF file index 
+found match for reference contig contig_160 in VCF file index 
+found match for reference contig contig_164 in VCF file index 
+found match for reference contig contig_165 in VCF file index 
+found match for reference contig contig_166 in VCF file index 
+found match for reference contig contig_168 in VCF file index 
+found match for reference contig contig_170 in VCF file index 
+found match for reference contig contig_172 in VCF file index 
+found match for reference contig contig_177 in VCF file index 
+found match for reference contig contig_20 in VCF file index 
+found match for reference contig contig_25 in VCF file index 
+found match for reference contig contig_3 in VCF file index 
+found match for reference contig contig_33 in VCF file index 
+found match for reference contig contig_34 in VCF file index 
+found match for reference contig contig_38 in VCF file index 
+found match for reference contig contig_4 in VCF file index 
+found match for reference contig contig_40 in VCF file index 
+found match for reference contig contig_41 in VCF file index 
+found match for reference contig contig_42 in VCF file index 
+found match for reference contig contig_43 in VCF file index 
+found match for reference contig contig_44 in VCF file index 
+found match for reference contig contig_45 in VCF file index 
+found match for reference contig contig_46 in VCF file index 
+found match for reference contig contig_47 in VCF file index 
+found match for reference contig contig_5 in VCF file index 
+found match for reference contig contig_50 in VCF file index 
+found match for reference contig contig_53 in VCF file index 
+found match for reference contig contig_57 in VCF file index 
+found match for reference contig contig_6 in VCF file index 
+found match for reference contig contig_63 in VCF file index 
+found match for reference contig contig_64 in VCF file index 
+found match for reference contig contig_65 in VCF file index 
+found match for reference contig contig_66 in VCF file index 
+found match for reference contig contig_7 in VCF file index 
+found match for reference contig contig_72 in VCF file index 
+found match for reference contig contig_74 in VCF file index 
+found match for reference contig contig_75 in VCF file index 
+found match for reference contig contig_76 in VCF file index 
+found match for reference contig contig_78 in VCF file index 
+found match for reference contig contig_81 in VCF file index 
+found match for reference contig contig_83 in VCF file index 
+found match for reference contig contig_85 in VCF file index 
+found match for reference contig contig_87 in VCF file index 
+found match for reference contig contig_91 in VCF file index 
+found match for reference contig contig_97 in VCF file index 
+reading reference sequence file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta with 81 contigs
+read reference sequence file in 0.64 sec
+reading sorted bamfile /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam 
+using 10000 reads to estimate realignment parameters for HMM 
+A -> A 0.9773 0.977279 | A -> C 0.0042 0.004176 | A -> G 0.0113 0.011326 | A -> T 0.0072 0.007220 | 
+C -> A 0.0064 0.006370 | C -> C 0.9743 0.974314 | C -> G 0.0048 0.004834 | C -> T 0.0145 0.014482 | 
+G -> A 0.0191 0.019147 | G -> C 0.0046 0.004634 | G -> G 0.9703 0.970280 | G -> T 0.0059 0.005939 | 
+T -> A 0.0070 0.006987 | T -> C 0.0082 0.008172 | T -> G 0.0040 0.003993 | T -> T 0.9808 0.980848 | 
+M -> M 0.9864 0.986360 | M -> I 0.0049 0.004906 | M -> D 0.0087 0.008733 | 
+I -> M 0.5728 0.572804 | I -> I 0.4272 0.427197 | I -> D 0.0000 0.000001 | 
+D -> M 0.6007 0.600714 | D -> I 0.0000 0.000000 | D -> D 0.3993 0.399287 | 
+processing reads mapped to chrom "contig_108" 
+processing reads mapped to chrom "contig_114" 
+processing reads mapped to chrom "contig_115" 
+processing reads mapped to chrom "contig_121" 
+processing reads mapped to chrom "contig_128" 
+processing reads mapped to chrom "contig_130" 
+processing reads mapped to chrom "contig_133" 
+processing reads mapped to chrom "contig_134" 
+processing reads mapped to chrom "contig_137" 
+processing reads mapped to chrom "contig_141" 
+processing reads mapped to chrom "contig_15" 
+processing reads mapped to chrom "contig_153" 
+processing reads mapped to chrom "contig_149" 
+processing reads mapped to chrom "contig_154" 
+processing reads mapped to chrom "contig_14" 
+processing reads mapped to chrom "contig_158" 
+processing reads mapped to chrom "contig_160" 
+processing reads mapped to chrom "contig_157" 
+processing reads mapped to chrom "contig_164" 
+processing reads mapped to chrom "contig_168" 
+processing reads mapped to chrom "contig_150" 
+processing reads mapped to chrom "contig_177" 
+processing reads mapped to chrom "contig_20" 
+processing reads mapped to chrom "contig_136" 
+processing reads mapped to chrom "contig_172" 
+processing reads mapped to chrom "contig_3" 
+processing reads mapped to chrom "contig_33" 
+processing reads mapped to chrom "contig_34" 
+processing reads mapped to chrom "contig_41" 
+processing reads mapped to chrom "contig_166" 
+processing reads mapped to chrom "contig_42" 
+processing reads mapped to chrom "contig_107" 
+processing reads mapped to chrom "contig_43" 
+processing reads mapped to chrom "contig_44" 
+processing reads mapped to chrom "contig_119" 
+processing reads mapped to chrom "contig_46" 
+processing reads mapped to chrom "contig_47" 
+processing reads mapped to chrom "contig_5" 
+processing reads mapped to chrom "contig_50" 
+processing reads mapped to chrom "contig_53" 
+processing reads mapped to chrom "contig_57" 
+processing reads mapped to chrom "contig_102" 
+processing reads mapped to chrom "contig_6" 
+processing reads mapped to chrom "contig_170" 
+processing reads mapped to chrom "contig_64" 
+processing reads mapped to chrom "contig_66" 
+processing reads mapped to chrom "contig_45" 
+processing reads mapped to chrom "contig_25" 
+processing reads mapped to chrom "contig_7" 
+processing reads mapped to chrom "contig_118" 
+processing reads mapped to chrom "contig_72" 
+processing reads mapped to chrom "contig_38" 
+processing reads mapped to chrom "contig_165" 
+processing reads mapped to chrom "contig_74" 
+processing reads mapped to chrom "contig_100" 
+processing reads mapped to chrom "contig_159" 
+processing reads mapped to chrom "contig_75" 
+processing reads mapped to chrom "contig_117" 
+processing reads mapped to chrom "contig_120" 
+processing reads mapped to chrom "contig_78" 
+processing reads mapped to chrom "contig_4" 
+processing reads mapped to chrom "contig_81" 
+processing reads mapped to chrom "contig_10" 
+processing reads mapped to chrom "contig_83" 
+chrom "contig_8" not in VCF file, skipping all reads for this chrom.... 
+processing reads mapped to chrom "contig_85" 
+processing reads mapped to chrom "contig_144" 
+processing reads mapped to chrom "contig_63" 
+processing reads mapped to chrom "contig_87" 
+processing reads mapped to chrom "contig_76" 
+processing reads mapped to chrom "contig_65" 
+processing reads mapped to chrom "contig_40" 
+processing reads mapped to chrom "contig_91" 
+processing reads mapped to chrom "contig_97" 
+2024-05-17 21:51:50,275 - root - INFO - [main.py:248] - Filtering by consistency
+[2024-05-17 21:51:50] INFO: Filtering by consistency
+2024-05-17 22:00:23,713 - root - INFO - [main.py:256] - HapCUT2 input vcf: /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered
+[2024-05-17 22:00:23] INFO: HapCUT2 input vcf: /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered
+2024-05-17 22:00:23,723 - root - INFO - [main.py:267] - Running: /public/home/hpc224712204/software/HapCUT2/build/extractHAIRS --indels 1 --ont 1 --bam /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam --VCF /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered --out /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/fragment_file --ref /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/hapcut2.log
+[2024-05-17 22:00:23] INFO: Running: /public/home/hpc224712204/software/HapCUT2/build/extractHAIRS --indels 1 --ont 1 --bam /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam --VCF /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered --out /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/fragment_file --ref /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/hapcut2.log
+
+Extracting haplotype informative reads from bamfiles /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam minQV 4 minMQ 20 maxIS 1000 
+
+VCF file /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered has 271285 variants 
+adding chrom contig_10 to index 
+adding chrom contig_100 to index 
+adding chrom contig_102 to index 
+adding chrom contig_107 to index 
+adding chrom contig_108 to index 
+adding chrom contig_114 to index 
+adding chrom contig_115 to index 
+adding chrom contig_117 to index 
+adding chrom contig_118 to index 
+adding chrom contig_119 to index 
+adding chrom contig_120 to index 
+adding chrom contig_121 to index 
+adding chrom contig_128 to index 
+adding chrom contig_130 to index 
+adding chrom contig_133 to index 
+adding chrom contig_134 to index 
+adding chrom contig_136 to index 
+adding chrom contig_137 to index 
+adding chrom contig_14 to index 
+adding chrom contig_141 to index 
+adding chrom contig_144 to index 
+adding chrom contig_149 to index 
+adding chrom contig_15 to index 
+adding chrom contig_150 to index 
+adding chrom contig_153 to index 
+adding chrom contig_154 to index 
+adding chrom contig_157 to index 
+adding chrom contig_158 to index 
+adding chrom contig_159 to index 
+adding chrom contig_160 to index 
+adding chrom contig_164 to index 
+adding chrom contig_165 to index 
+adding chrom contig_166 to index 
+adding chrom contig_168 to index 
+adding chrom contig_170 to index 
+adding chrom contig_172 to index 
+adding chrom contig_177 to index 
+adding chrom contig_20 to index 
+adding chrom contig_25 to index 
+adding chrom contig_3 to index 
+adding chrom contig_33 to index 
+adding chrom contig_34 to index 
+adding chrom contig_38 to index 
+adding chrom contig_4 to index 
+adding chrom contig_40 to index 
+adding chrom contig_41 to index 
+adding chrom contig_42 to index 
+adding chrom contig_43 to index 
+adding chrom contig_44 to index 
+adding chrom contig_45 to index 
+adding chrom contig_46 to index 
+adding chrom contig_47 to index 
+adding chrom contig_5 to index 
+adding chrom contig_50 to index 
+adding chrom contig_53 to index 
+adding chrom contig_57 to index 
+adding chrom contig_6 to index 
+adding chrom contig_63 to index 
+adding chrom contig_64 to index 
+adding chrom contig_65 to index 
+adding chrom contig_66 to index 
+adding chrom contig_7 to index 
+adding chrom contig_72 to index 
+adding chrom contig_74 to index 
+adding chrom contig_75 to index 
+adding chrom contig_76 to index 
+adding chrom contig_78 to index 
+adding chrom contig_81 to index 
+adding chrom contig_83 to index 
+adding chrom contig_85 to index 
+adding chrom contig_87 to index 
+adding chrom contig_91 to index 
+adding chrom contig_97 to index 
+vcffile /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered chromosomes 73 hetvariants 206315 variants 271285 
+detected 2605 variants with two non-reference alleles, these variants will not be phased
+
+##########################################################################################
+73 chromosomes/contigs detected in input VCF file
+processing each contig separately using --regions option will be more efficient for large genomes
+############################################################################################
+
+reading fasta index file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta.fai ... fasta file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta has 81 chromosomes/contigs
+
+contig contig_1 length 3396
+found match for reference contig contig_10 in VCF file index 
+contig contig_10 length 67943
+found match for reference contig contig_100 in VCF file index 
+contig contig_100 length 29313
+found match for reference contig contig_102 in VCF file index 
+contig contig_102 length 103084
+found match for reference contig contig_107 in VCF file index 
+contig contig_107 length 18156
+found match for reference contig contig_108 in VCF file index 
+found match for reference contig contig_114 in VCF file index 
+found match for reference contig contig_115 in VCF file index 
+found match for reference contig contig_117 in VCF file index 
+found match for reference contig contig_118 in VCF file index 
+found match for reference contig contig_119 in VCF file index 
+found match for reference contig contig_120 in VCF file index 
+found match for reference contig contig_121 in VCF file index 
+found match for reference contig contig_128 in VCF file index 
+found match for reference contig contig_130 in VCF file index 
+found match for reference contig contig_133 in VCF file index 
+found match for reference contig contig_134 in VCF file index 
+found match for reference contig contig_136 in VCF file index 
+found match for reference contig contig_137 in VCF file index 
+found match for reference contig contig_14 in VCF file index 
+found match for reference contig contig_141 in VCF file index 
+found match for reference contig contig_144 in VCF file index 
+found match for reference contig contig_149 in VCF file index 
+found match for reference contig contig_15 in VCF file index 
+found match for reference contig contig_150 in VCF file index 
+found match for reference contig contig_153 in VCF file index 
+found match for reference contig contig_154 in VCF file index 
+found match for reference contig contig_157 in VCF file index 
+found match for reference contig contig_158 in VCF file index 
+found match for reference contig contig_159 in VCF file index 
+found match for reference contig contig_160 in VCF file index 
+found match for reference contig contig_164 in VCF file index 
+found match for reference contig contig_165 in VCF file index 
+found match for reference contig contig_166 in VCF file index 
+found match for reference contig contig_168 in VCF file index 
+found match for reference contig contig_170 in VCF file index 
+found match for reference contig contig_172 in VCF file index 
+found match for reference contig contig_177 in VCF file index 
+found match for reference contig contig_20 in VCF file index 
+found match for reference contig contig_25 in VCF file index 
+found match for reference contig contig_3 in VCF file index 
+found match for reference contig contig_33 in VCF file index 
+found match for reference contig contig_34 in VCF file index 
+found match for reference contig contig_38 in VCF file index 
+found match for reference contig contig_4 in VCF file index 
+found match for reference contig contig_40 in VCF file index 
+found match for reference contig contig_41 in VCF file index 
+found match for reference contig contig_42 in VCF file index 
+found match for reference contig contig_43 in VCF file index 
+found match for reference contig contig_44 in VCF file index 
+found match for reference contig contig_45 in VCF file index 
+found match for reference contig contig_46 in VCF file index 
+found match for reference contig contig_47 in VCF file index 
+found match for reference contig contig_5 in VCF file index 
+found match for reference contig contig_50 in VCF file index 
+found match for reference contig contig_53 in VCF file index 
+found match for reference contig contig_57 in VCF file index 
+found match for reference contig contig_6 in VCF file index 
+found match for reference contig contig_63 in VCF file index 
+found match for reference contig contig_64 in VCF file index 
+found match for reference contig contig_65 in VCF file index 
+found match for reference contig contig_66 in VCF file index 
+found match for reference contig contig_7 in VCF file index 
+found match for reference contig contig_72 in VCF file index 
+found match for reference contig contig_74 in VCF file index 
+found match for reference contig contig_75 in VCF file index 
+found match for reference contig contig_76 in VCF file index 
+found match for reference contig contig_78 in VCF file index 
+found match for reference contig contig_81 in VCF file index 
+found match for reference contig contig_83 in VCF file index 
+found match for reference contig contig_85 in VCF file index 
+found match for reference contig contig_87 in VCF file index 
+found match for reference contig contig_91 in VCF file index 
+found match for reference contig contig_97 in VCF file index 
+reading reference sequence file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta with 81 contigs
+read reference sequence file in 0.56 sec
+reading sorted bamfile /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam 
+using 10000 reads to estimate realignment parameters for HMM 
+A -> A 0.9773 0.977279 | A -> C 0.0042 0.004176 | A -> G 0.0113 0.011326 | A -> T 0.0072 0.007220 | 
+C -> A 0.0064 0.006370 | C -> C 0.9743 0.974314 | C -> G 0.0048 0.004834 | C -> T 0.0145 0.014482 | 
+G -> A 0.0191 0.019147 | G -> C 0.0046 0.004634 | G -> G 0.9703 0.970280 | G -> T 0.0059 0.005939 | 
+T -> A 0.0070 0.006987 | T -> C 0.0082 0.008172 | T -> G 0.0040 0.003993 | T -> T 0.9808 0.980848 | 
+M -> M 0.9864 0.986360 | M -> I 0.0049 0.004906 | M -> D 0.0087 0.008733 | 
+I -> M 0.5728 0.572804 | I -> I 0.4272 0.427197 | I -> D 0.0000 0.000001 | 
+D -> M 0.6007 0.600714 | D -> I 0.0000 0.000000 | D -> D 0.3993 0.399287 | 
+processing reads mapped to chrom "contig_108" 
+processing reads mapped to chrom "contig_114" 
+processing reads mapped to chrom "contig_115" 
+processing reads mapped to chrom "contig_121" 
+processing reads mapped to chrom "contig_128" 
+processing reads mapped to chrom "contig_130" 
+processing reads mapped to chrom "contig_133" 
+processing reads mapped to chrom "contig_134" 
+processing reads mapped to chrom "contig_137" 
+processing reads mapped to chrom "contig_141" 
+processing reads mapped to chrom "contig_15" 
+processing reads mapped to chrom "contig_153" 
+processing reads mapped to chrom "contig_149" 
+processing reads mapped to chrom "contig_154" 
+processing reads mapped to chrom "contig_14" 
+processing reads mapped to chrom "contig_158" 
+processing reads mapped to chrom "contig_160" 
+processing reads mapped to chrom "contig_157" 
+processing reads mapped to chrom "contig_164" 
+processing reads mapped to chrom "contig_168" 
+processing reads mapped to chrom "contig_150" 
+processing reads mapped to chrom "contig_177" 
+processing reads mapped to chrom "contig_20" 
+processing reads mapped to chrom "contig_136" 
+processing reads mapped to chrom "contig_172" 
+processing reads mapped to chrom "contig_3" 
+processing reads mapped to chrom "contig_33" 
+processing reads mapped to chrom "contig_34" 
+processing reads mapped to chrom "contig_41" 
+processing reads mapped to chrom "contig_166" 
+processing reads mapped to chrom "contig_42" 
+processing reads mapped to chrom "contig_107" 
+processing reads mapped to chrom "contig_43" 
+processing reads mapped to chrom "contig_44" 
+processing reads mapped to chrom "contig_119" 
+processing reads mapped to chrom "contig_46" 
+processing reads mapped to chrom "contig_47" 
+processing reads mapped to chrom "contig_5" 
+processing reads mapped to chrom "contig_50" 
+processing reads mapped to chrom "contig_53" 
+processing reads mapped to chrom "contig_57" 
+processing reads mapped to chrom "contig_102" 
+processing reads mapped to chrom "contig_6" 
+processing reads mapped to chrom "contig_170" 
+processing reads mapped to chrom "contig_64" 
+processing reads mapped to chrom "contig_66" 
+processing reads mapped to chrom "contig_45" 
+processing reads mapped to chrom "contig_25" 
+processing reads mapped to chrom "contig_7" 
+processing reads mapped to chrom "contig_118" 
+processing reads mapped to chrom "contig_72" 
+processing reads mapped to chrom "contig_38" 
+processing reads mapped to chrom "contig_165" 
+processing reads mapped to chrom "contig_74" 
+processing reads mapped to chrom "contig_100" 
+processing reads mapped to chrom "contig_159" 
+processing reads mapped to chrom "contig_75" 
+processing reads mapped to chrom "contig_117" 
+processing reads mapped to chrom "contig_120" 
+processing reads mapped to chrom "contig_78" 
+processing reads mapped to chrom "contig_4" 
+processing reads mapped to chrom "contig_81" 
+processing reads mapped to chrom "contig_10" 
+processing reads mapped to chrom "contig_83" 
+chrom "contig_8" not in VCF file, skipping all reads for this chrom.... 
+processing reads mapped to chrom "contig_85" 
+processing reads mapped to chrom "contig_144" 
+processing reads mapped to chrom "contig_63" 
+processing reads mapped to chrom "contig_87" 
+processing reads mapped to chrom "contig_76" 
+processing reads mapped to chrom "contig_65" 
+processing reads mapped to chrom "contig_40" 
+processing reads mapped to chrom "contig_91" 
+processing reads mapped to chrom "contig_97" 
+2024-05-17 22:08:58,513 - root - INFO - [main.py:274] - Running: /public/home/hpc224712204/software/HapCUT2/build/HAPCUT2 --outvcf 1 --fragments /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/fragment_file --VCF /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered --output /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/haplotype_output_file 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/hapcut2.log
+[2024-05-17 22:08:58] INFO: Running: /public/home/hpc224712204/software/HapCUT2/build/HAPCUT2 --outvcf 1 --fragments /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/fragment_file --VCF /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered --output /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/haplotype_output_file 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/hapcut2.log
+
+
+[2024:05:17 22:08:58] input fragment file: /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/fragment_file
+[2024:05:17 22:08:58] input variantfile (VCF format):/public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered
+[2024:05:17 22:08:58] haplotypes will be output to file: /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/haplotype_output_file
+[2024:05:17 22:08:58] solution convergence cutoff: 5
+[2024:05:17 22:09:01] read 271285 variants from /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/pepper/PEPPER_VARIANT_FULL.vcf.filtered file 
+[2024:05:17 22:09:01] read fragment file and variant file: fragments 531362 variants 271285
+mean number of variants per read is 29.32 
+[2024:05:17 22:09:01] building read-variant graph for phasing
+[2024:05:17 22:09:04] fragments 531362 snps 271285 component(blocks) 194
+[2024:05:17 22:09:04] starting Max-Likelihood-Cut based haplotype assembly algorithm
+[2024:05:17 22:30:18] starting to post-process phased haplotypes to further improve accuracy
+[2024:05:17 22:30:48] starting to output phased haplotypes
+[2024:05:17 22:30:48] OUTPUTTING PRUNED HAPLOTYPE ASSEMBLY TO FILE /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/haplotype_output_file
+[2024:05:17 22:30:48] N50 haplotype length is 6172.60 kilobases 
+[2024:05:17 22:30:48] OUTPUTTING PHASED VCF TO FILE /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/haplotype_output_file.phased.VCF
+Number of non-trivial connected components 194 max-Degree 22438 connected variants 206300 coverage-per-variant 75.515511 
+2024-05-17 22:30:50,984 - root - INFO - [main.py:286] - Running: /public/home/hpc224712204/miniconda3/envs/whatshap-env/bin/whatshap haplotag --ignore-read-groups --output-threads 40 -o /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam --reference /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/haplotype_output_file.phased.VCF.gz /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam
+[2024-05-17 22:30:50] INFO: Running: /public/home/hpc224712204/miniconda3/envs/whatshap-env/bin/whatshap haplotag --ignore-read-groups --output-threads 40 -o /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam --reference /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/haplotype_output_file.phased.VCF.gz /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/filtered.bam
+Found 1 sample(s) in input VCF
+Found 0 sample(s) in BAM file
+Found 258 reads covering 239 variants
+Found 23 reads covering 52 variants
+Found 259 reads covering 246 variants
+Found 39 reads covering 101 variants
+Found 196 reads covering 171 variants
+Found 0 reads covering 0 variants
+Found 0 reads covering 0 variants
+Found 5916 reads covering 32 variants
+Found 33 reads covering 84 variants
+Found 1843 reads covering 424 variants
+Found 12962 reads covering 1664 variants
+Found 24 reads covering 19 variants
+Found 287 reads covering 34 variants
+Found 63 reads covering 34 variants
+Found 326 reads covering 574 variants
+Found 119 reads covering 38 variants
+Found 1035 reads covering 649 variants
+Found 29051 reads covering 8006 variants
+Found 8817 reads covering 4615 variants
+Found 122 reads covering 9 variants
+Found 429 reads covering 682 variants
+Found 85 reads covering 250 variants
+Found 111137 reads covering 40599 variants
+Found 802 reads covering 104 variants
+Found 1217 reads covering 2272 variants
+Found 984 reads covering 80 variants
+Found 271 reads covering 67 variants
+Found 654 reads covering 102 variants
+Found 476 reads covering 46 variants
+Found 136 reads covering 59 variants
+Found 701 reads covering 612 variants
+Found 630 reads covering 155 variants
+Found 13219 reads covering 4684 variants
+Found 308 reads covering 218 variants
+Found 180 reads covering 32 variants
+Found 890 reads covering 728 variants
+Found 111 reads covering 70 variants
+Found 264 reads covering 26 variants
+Found 257 reads covering 998 variants
+Found 2294 reads covering 657 variants
+Found 21923 reads covering 8744 variants
+Found 9 reads covering 31 variants
+Found 0 reads covering 0 variants
+Found 197 reads covering 315 variants
+Found 179 reads covering 357 variants
+Found 102 reads covering 88 variants
+Found 193 reads covering 79 variants
+Found 507 reads covering 243 variants
+Found 145 reads covering 31 variants
+Found 152 reads covering 609 variants
+Found 145 reads covering 15 variants
+Found 190747 reads covering 61968 variants
+Found 1094 reads covering 294 variants
+Found 154 reads covering 9 variants
+Found 1059 reads covering 608 variants
+Found 8 reads covering 33 variants
+Found 37193 reads covering 13598 variants
+Found 995 reads covering 349 variants
+Found 26093 reads covering 10673 variants
+Found 393 reads covering 323 variants
+Found 58 reads covering 252 variants
+Found 4702 reads covering 1778 variants
+Found 11810 reads covering 3727 variants
+Found 26 reads covering 200 variants
+Found 0 reads covering 0 variants
+Found 2156 reads covering 467 variants
+Found 206 reads covering 141 variants
+Found 5 reads covering 5 variants
+Found 36633 reads covering 15749 variants
+Found 16 reads covering 88 variants
+Found 0 reads covering 0 variants
+Found 0 reads covering 0 variants
+Found 0 reads covering 0 variants
+Found 4 reads covering 10 variants
+Found 10607 reads covering 3709 variants
+Found 29195 reads covering 11618 variants
+Found 178 reads covering 15 variants
+Found 0 reads covering 0 variants
+Found 188 reads covering 43 variants
+Found 222 reads covering 90 variants
+
+== SUMMARY ==
+Total alignments processed:                    701699
+Alignments that could be tagged:               569901
+Alignments spanning multiple phase sets:            1
+Finished in 328.4 s
+2024-05-17 22:36:28,577 - root - INFO - [main.py:288] - Running: samtools sort -@ 40 -O BAM -o /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam
+[2024-05-17 22:36:28] INFO: Running: samtools sort -@ 40 -O BAM -o /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam
+[bam_sort_core] merging from 0 files and 40 in-memory blocks...
+2024-05-17 22:37:13,703 - root - INFO - [main.py:294] - Running: flye-samtools index -@4 /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam
+[2024-05-17 22:37:13] INFO: Running: flye-samtools index -@4 /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam
+2024-05-17 22:37:32,922 - root - INFO - [main.py:316] - Running: flye --polish-target /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta --nano-raw /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam -t 20 -o /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/flye_hap_1 --polish-haplotypes 1 2>/public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/flye.err.log
+[2024-05-17 22:37:32] INFO: Running: flye --polish-target /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta --nano-raw /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam -t 20 -o /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/flye_hap_1 --polish-haplotypes 1 2>/public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/flye.err.log
+2024-05-17 22:37:32,922 - root - INFO - [main.py:316] - Running: flye --polish-target /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta --nano-raw /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam -t 20 -o /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/flye_hap_2 --polish-haplotypes 2 2>/public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/flye.err.log
+[2024-05-17 22:37:32] INFO: Running: flye --polish-target /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr1/flye_hap/assembly.fasta --nano-raw /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/hapcut2/HAPCUT2_PHASED.haplotagged.bam -t 20 -o /public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/flye_hap_2 --polish-haplotypes 2 2>/public/home/hpc224712204/bench/test_hapdup/chr1/chr1_filter/flye.err.log
+read: hg002_k21.meryl
+
+Haplotype dbs provided.
+Running Merqury in trio mode...
+
+hap1: hg004_k21.hapmer.meryl
+hap2: hg003_k21.hapmer.meryl
+asm1: polished_1.fasta
+asm2: polished_2.fasta
+out : bench
+
+
+Get spectra-cn plots and QV stats
+
+Get blob plots
+
+Get haplotype specfic spectra-cn plots
+
+Get phase blocks
+
+
+Get block N plots
+ERROR: Unable to locate a modulefile for 'bedtools'
+ERROR: Unable to locate a modulefile for 'samtools'
+R 4.3.0 is loaded
+# Generate polished_1.fasta.fai
+
+# Get gaps
+Processing file polished_1.fasta
+Into polished_1.gaps
+Total number of gaps: 0
+Running time : 0 h 0 m 2 sec
+
+
+# No gaps found. This is a contig set.
+
+# Generate polished_2.fasta.fai
+
+# Get gaps
+Processing file polished_2.fasta
+Into polished_2.gaps
+Total number of gaps: 0
+Running time : 0 h 0 m 2 sec
+
+
+# No gaps found. This is a contig set.
+
+# Convert bench.polished_1.100_20000.phased_block.bed to sizes
+ Result saved as bench.polished_1.100_20000.phased_block.sizes
+
+# Plot bench.polished_1.100_20000.phased_block.bed
+Rscript /public/home/hpc224712204/software/merqury/plot/plot_block_N.R -b bench.polished_1.100_20000.phased_block.sizes -c bench.polished_1.contig.sizes  -o bench.polished_1 
+载入需要的程辑包：argparse
+Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  不存在叫‘argparse’这个名字的程辑包
+载入需要的程辑包：ggplot2
+载入需要的程辑包：scales
+Error in ArgumentParser(description = "Make block N* or NG* plots. Applicable for scaffolds, contigs, and phased blocks.") : 
+  没有"ArgumentParser"这个函数
+停止执行
+
+# Convert bench.polished_2.100_20000.phased_block.bed to sizes
+ Result saved as bench.polished_2.100_20000.phased_block.sizes
+
+# Plot bench.polished_2.100_20000.phased_block.bed
+Rscript /public/home/hpc224712204/software/merqury/plot/plot_block_N.R -b bench.polished_2.100_20000.phased_block.sizes -c bench.polished_2.contig.sizes  -o bench.polished_2 
+载入需要的程辑包：argparse
+Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  不存在叫‘argparse’这个名字的程辑包
+载入需要的程辑包：ggplot2
+载入需要的程辑包：scales
+Error in ArgumentParser(description = "Make block N* or NG* plots. Applicable for scaffolds, contigs, and phased blocks.") : 
+  没有"ArgumentParser"这个函数
+停止执行
+

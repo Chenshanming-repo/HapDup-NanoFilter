@@ -1,0 +1,7 @@
+# HapDup: A Pipeline for Diploid Assembly Using Long Reads
+
+HapDup is a pipeline designed to convert a haploid long-read assembler into a diploid assembler. This enables the diploid assembly of genomes using tools such as Flye, PEPPER, and Margin. The pipeline has been enhanced with **NanoFilter** integration for improved phasing accuracy and assembly performance.
+
+---
+Set the system property GATK_STACKTRACE_ON_USER_EXCEPTION (--java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true') to print the stack trace.
+

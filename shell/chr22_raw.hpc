@@ -1,0 +1,321 @@
+2024-05-20 09:15:02,183 - root - INFO - [main.py:166] - Skipped filtering phase
+[2024-05-20 09:15:02] INFO: Skipped filtering phase
+2024-05-20 09:15:02,184 - root - INFO - [main.py:181] - Skipped pepper phase
+[2024-05-20 09:15:02] INFO: Skipped pepper phase
+2024-05-20 09:15:02,751 - root - INFO - [main.py:215] - Changing /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf to /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel
+[2024-05-20 09:15:02] INFO: Changing /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf to /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel
+2024-05-20 09:15:02,752 - root - INFO - [main.py:219] - gzip /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel
+[2024-05-20 09:15:02] INFO: gzip /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel
+2024-05-20 09:15:03,284 - root - INFO - [main.py:256] - HapCUT2 input vcf: /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel
+[2024-05-20 09:15:03] INFO: HapCUT2 input vcf: /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel
+2024-05-20 09:15:03,284 - root - INFO - [main.py:267] - Running: /public/home/hpc224712204/software/HapCUT2/build/extractHAIRS --indels 0 --ont 1 --bam /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/filtered.bam --VCF /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel --out /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/fragment_file --ref /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/hapcut2.log
+[2024-05-20 09:15:03] INFO: Running: /public/home/hpc224712204/software/HapCUT2/build/extractHAIRS --indels 0 --ont 1 --bam /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/filtered.bam --VCF /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel --out /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/fragment_file --ref /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/hapcut2.log
+
+Extracting haplotype informative reads from bamfiles /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/filtered.bam minQV 4 minMQ 20 maxIS 1000 
+
+VCF file /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel has 74072 variants 
+adding chrom contig_1 to index 
+adding chrom contig_10 to index 
+adding chrom contig_11 to index 
+adding chrom contig_15 to index 
+adding chrom contig_2 to index 
+adding chrom contig_23 to index 
+adding chrom contig_25 to index 
+adding chrom contig_26 to index 
+adding chrom contig_29 to index 
+adding chrom contig_3 to index 
+adding chrom contig_30 to index 
+adding chrom contig_34 to index 
+adding chrom contig_35 to index 
+adding chrom contig_36 to index 
+adding chrom contig_37 to index 
+adding chrom contig_42 to index 
+adding chrom contig_45 to index 
+adding chrom contig_47 to index 
+adding chrom contig_48 to index 
+adding chrom contig_49 to index 
+adding chrom contig_50 to index 
+adding chrom contig_53 to index 
+adding chrom contig_54 to index 
+adding chrom contig_6 to index 
+adding chrom contig_60 to index 
+adding chrom contig_61 to index 
+adding chrom contig_63 to index 
+adding chrom contig_64 to index 
+adding chrom contig_65 to index 
+adding chrom contig_66 to index 
+adding chrom contig_67 to index 
+adding chrom contig_68 to index 
+adding chrom contig_69 to index 
+adding chrom contig_7 to index 
+adding chrom contig_73 to index 
+adding chrom contig_74 to index 
+adding chrom contig_75 to index 
+adding chrom contig_76 to index 
+adding chrom contig_77 to index 
+adding chrom contig_8 to index 
+vcffile /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel chromosomes 40 hetvariants 53765 variants 74072 
+detected 539 variants with two non-reference alleles, these variants will not be phased
+
+##########################################################################################
+40 chromosomes/contigs detected in input VCF file
+processing each contig separately using --regions option will be more efficient for large genomes
+############################################################################################
+
+reading fasta index file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta.fai ... fasta file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta has 43 chromosomes/contigs
+
+found match for reference contig contig_1 in VCF file index 
+contig contig_1 length 249475
+found match for reference contig contig_10 in VCF file index 
+contig contig_10 length 849547
+found match for reference contig contig_11 in VCF file index 
+contig contig_11 length 1181421
+found match for reference contig contig_15 in VCF file index 
+contig contig_15 length 18406
+found match for reference contig contig_2 in VCF file index 
+contig contig_2 length 31913
+found match for reference contig contig_23 in VCF file index 
+found match for reference contig contig_25 in VCF file index 
+found match for reference contig contig_26 in VCF file index 
+found match for reference contig contig_29 in VCF file index 
+found match for reference contig contig_3 in VCF file index 
+found match for reference contig contig_30 in VCF file index 
+found match for reference contig contig_34 in VCF file index 
+found match for reference contig contig_35 in VCF file index 
+found match for reference contig contig_36 in VCF file index 
+found match for reference contig contig_37 in VCF file index 
+found match for reference contig contig_42 in VCF file index 
+found match for reference contig contig_45 in VCF file index 
+found match for reference contig contig_47 in VCF file index 
+found match for reference contig contig_48 in VCF file index 
+found match for reference contig contig_49 in VCF file index 
+found match for reference contig contig_50 in VCF file index 
+found match for reference contig contig_53 in VCF file index 
+found match for reference contig contig_54 in VCF file index 
+found match for reference contig contig_6 in VCF file index 
+found match for reference contig contig_60 in VCF file index 
+found match for reference contig contig_61 in VCF file index 
+found match for reference contig contig_63 in VCF file index 
+found match for reference contig contig_64 in VCF file index 
+found match for reference contig contig_65 in VCF file index 
+found match for reference contig contig_66 in VCF file index 
+found match for reference contig contig_67 in VCF file index 
+found match for reference contig contig_68 in VCF file index 
+found match for reference contig contig_69 in VCF file index 
+found match for reference contig contig_7 in VCF file index 
+found match for reference contig contig_73 in VCF file index 
+found match for reference contig contig_74 in VCF file index 
+found match for reference contig contig_75 in VCF file index 
+found match for reference contig contig_76 in VCF file index 
+found match for reference contig contig_77 in VCF file index 
+found match for reference contig contig_8 in VCF file index 
+reading reference sequence file /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta with 43 contigs
+read reference sequence file in 1.20 sec
+reading sorted bamfile /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/filtered.bam 
+using 10000 reads to estimate realignment parameters for HMM 
+A -> A 0.9823 0.982333 | A -> C 0.0028 0.002773 | A -> G 0.0119 0.011931 | A -> T 0.0030 0.002964 | 
+C -> A 0.0035 0.003482 | C -> C 0.9883 0.988315 | C -> G 0.0025 0.002532 | C -> T 0.0057 0.005672 | 
+G -> A 0.0129 0.012900 | G -> C 0.0021 0.002054 | G -> G 0.9826 0.982585 | G -> T 0.0025 0.002461 | 
+T -> A 0.0027 0.002694 | T -> C 0.0047 0.004691 | T -> G 0.0022 0.002165 | T -> T 0.9905 0.990451 | 
+M -> M 0.9835 0.983493 | M -> I 0.0063 0.006304 | M -> D 0.0102 0.010203 | 
+I -> M 0.6799 0.679873 | I -> I 0.3201 0.320127 | I -> D 0.0000 0.000000 | 
+D -> M 0.6316 0.631616 | D -> I 0.0000 0.000000 | D -> D 0.3684 0.368384 | 
+processing reads mapped to chrom "contig_15" 
+processing reads mapped to chrom "contig_23" 
+processing reads mapped to chrom "contig_26" 
+processing reads mapped to chrom "contig_35" 
+processing reads mapped to chrom "contig_3" 
+processing reads mapped to chrom "contig_37" 
+processing reads mapped to chrom "contig_42" 
+processing reads mapped to chrom "contig_45" 
+processing reads mapped to chrom "contig_47" 
+processing reads mapped to chrom "contig_48" 
+processing reads mapped to chrom "contig_49" 
+processing reads mapped to chrom "contig_50" 
+processing reads mapped to chrom "contig_54" 
+processing reads mapped to chrom "contig_10" 
+processing reads mapped to chrom "contig_6" 
+processing reads mapped to chrom "contig_60" 
+processing reads mapped to chrom "contig_61" 
+processing reads mapped to chrom "contig_29" 
+processing reads mapped to chrom "contig_63" 
+processing reads mapped to chrom "contig_1" 
+processing reads mapped to chrom "contig_64" 
+processing reads mapped to chrom "contig_65" 
+processing reads mapped to chrom "contig_34" 
+processing reads mapped to chrom "contig_66" 
+processing reads mapped to chrom "contig_53" 
+processing reads mapped to chrom "contig_67" 
+processing reads mapped to chrom "contig_68" 
+processing reads mapped to chrom "contig_36" 
+processing reads mapped to chrom "contig_69" 
+processing reads mapped to chrom "contig_25" 
+processing reads mapped to chrom "contig_7" 
+processing reads mapped to chrom "contig_2" 
+processing reads mapped to chrom "contig_73" 
+processing reads mapped to chrom "contig_74" 
+processing reads mapped to chrom "contig_11" 
+processing reads mapped to chrom "contig_76" 
+processing reads mapped to chrom "contig_75" 
+processing reads mapped to chrom "contig_77" 
+processing reads mapped to chrom "contig_8" 
+processing reads mapped to chrom "contig_30" 
+2024-05-20 09:18:05,723 - root - INFO - [main.py:274] - Running: /public/home/hpc224712204/software/HapCUT2/build/HAPCUT2 --outvcf 1 --fragments /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/fragment_file --VCF /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel --output /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/haplotype_output_file 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/hapcut2.log
+[2024-05-20 09:18:05] INFO: Running: /public/home/hpc224712204/software/HapCUT2/build/HAPCUT2 --outvcf 1 --fragments /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/fragment_file --VCF /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel --output /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/haplotype_output_file 2>&1 |tee /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/hapcut2.log
+
+
+[2024:05:20 09:18:05] input fragment file: /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/fragment_file
+[2024:05:20 09:18:05] input variantfile (VCF format):/public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel
+[2024:05:20 09:18:05] haplotypes will be output to file: /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/haplotype_output_file
+[2024:05:20 09:18:05] solution convergence cutoff: 5
+[2024:05:20 09:18:06] read 74072 variants from /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/pepper/PEPPER_VARIANT_FULL.vcf.no.indel file 
+[2024:05:20 09:18:06] read fragment file and variant file: fragments 90060 variants 74072
+mean number of variants per read is 49.43 
+[2024:05:20 09:18:06] building read-variant graph for phasing
+[2024:05:20 09:18:07] fragments 90060 snps 74072 component(blocks) 58
+[2024:05:20 09:18:07] starting Max-Likelihood-Cut based haplotype assembly algorithm
+[2024:05:20 09:35:05] starting to post-process phased haplotypes to further improve accuracy
+[2024:05:20 09:35:32] starting to output phased haplotypes
+[2024:05:20 09:35:32] OUTPUTTING PRUNED HAPLOTYPE ASSEMBLY TO FILE /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/haplotype_output_file
+[2024:05:20 09:35:32] N50 haplotype length is 1554.00 kilobases 
+[2024:05:20 09:35:32] OUTPUTTING PHASED VCF TO FILE /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/haplotype_output_file.phased.VCF
+Number of non-trivial connected components 58 max-Degree 930 connected variants 53759 coverage-per-variant 82.814078 
+2024-05-20 09:35:32,610 - root - INFO - [main.py:286] - Running: /public/home/hpc224712204/miniconda3/envs/whatshap-env/bin/whatshap haplotag --ignore-read-groups --output-threads 40 -o /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam --reference /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/haplotype_output_file.phased.VCF.gz /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/filtered.bam
+[2024-05-20 09:35:32] INFO: Running: /public/home/hpc224712204/miniconda3/envs/whatshap-env/bin/whatshap haplotag --ignore-read-groups --output-threads 40 -o /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam --reference /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/haplotype_output_file.phased.VCF.gz /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/filtered.bam
+Found 1 sample(s) in input VCF
+Found 0 sample(s) in BAM file
+Found 1774 reads covering 1879 variants
+Found 2661 reads covering 939 variants
+Found 3408 reads covering 1443 variants
+Found 36 reads covering 32 variants
+Found 17 reads covering 260 variants
+Found 0 reads covering 0 variants
+Found 3775 reads covering 1740 variants
+Found 336 reads covering 574 variants
+Found 108 reads covering 962 variants
+Found 140 reads covering 428 variants
+Found 165 reads covering 726 variants
+Found 2278 reads covering 3890 variants
+Found 209 reads covering 370 variants
+Found 1052 reads covering 2023 variants
+Found 28 reads covering 1324 variants
+Found 311 reads covering 805 variants
+Found 0 reads covering 0 variants
+Found 0 reads covering 0 variants
+Found 3470 reads covering 1624 variants
+Found 177 reads covering 977 variants
+Found 20 reads covering 23 variants
+Found 0 reads covering 0 variants
+Found 10 reads covering 42 variants
+Found 7 reads covering 11 variants
+Found 1684 reads covering 1000 variants
+Found 15 reads covering 59 variants
+Found 292 reads covering 386 variants
+Found 0 reads covering 0 variants
+Found 142 reads covering 448 variants
+Found 527 reads covering 141 variants
+Found 3246 reads covering 4738 variants
+Found 39 reads covering 31 variants
+Found 352 reads covering 524 variants
+Found 255 reads covering 1151 variants
+Found 735 reads covering 888 variants
+Found 66703 reads covering 23279 variants
+Found 595 reads covering 212 variants
+Found 7 reads covering 242 variants
+Found 0 reads covering 0 variants
+Found 972 reads covering 305 variants
+Found 255 reads covering 64 variants
+Found 0 reads covering 0 variants
+Found 380 reads covering 169 variants
+
+== SUMMARY ==
+Total alignments processed:                    137050
+Alignments that could be tagged:                95893
+Alignments spanning multiple phase sets:            0
+Finished in 78.8 s
+2024-05-20 09:37:03,232 - root - INFO - [main.py:288] - Running: samtools sort -@ 40 -O BAM -o /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam
+[2024-05-20 09:37:03] INFO: Running: samtools sort -@ 40 -O BAM -o /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam
+[bam_sort_core] merging from 0 files and 40 in-memory blocks...
+2024-05-20 09:37:12,594 - root - INFO - [main.py:294] - Running: flye-samtools index -@4 /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam
+[2024-05-20 09:37:12] INFO: Running: flye-samtools index -@4 /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam
+2024-05-20 09:37:16,739 - root - INFO - [main.py:316] - Running: flye --polish-target /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta --nano-raw /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam -t 20 -o /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/flye_hap_1 --polish-haplotypes 1 2>/public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/flye.err.log
+[2024-05-20 09:37:16] INFO: Running: flye --polish-target /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta --nano-raw /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam -t 20 -o /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/flye_hap_1 --polish-haplotypes 1 2>/public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/flye.err.log
+2024-05-20 09:37:16,740 - root - INFO - [main.py:316] - Running: flye --polish-target /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta --nano-raw /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam -t 20 -o /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/flye_hap_2 --polish-haplotypes 2 2>/public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/flye.err.log
+[2024-05-20 09:37:16] INFO: Running: flye --polish-target /public/home/hpc224712204/data/hg002_tag/hg002_ont/chr22/flye_hap/assembly.fasta --nano-raw /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/hapcut2/HAPCUT2_PHASED.haplotagged.bam -t 20 -o /public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/flye_hap_2 --polish-haplotypes 2 2>/public/home/hpc224712204/bench/test_hapdup/chr22/chr22_snp/flye.err.log
+read: hg002_k21.meryl
+
+Haplotype dbs provided.
+Running Merqury in trio mode...
+
+hap1: hg004_k21.hapmer.meryl
+hap2: hg003_k21.hapmer.meryl
+asm1: polished_1.fasta
+asm2: polished_2.fasta
+out : bench
+
+
+Get spectra-cn plots and QV stats
+
+Get blob plots
+
+Get haplotype specfic spectra-cn plots
+
+Get phase blocks
+
+
+Get block N plots
+ERROR: Unable to locate a modulefile for 'bedtools'
+ERROR: Unable to locate a modulefile for 'samtools'
+R 4.3.0 is loaded
+# Generate polished_1.fasta.fai
+
+# Get gaps
+Processing file polished_1.fasta
+Into polished_1.gaps
+Total number of gaps: 0
+Running time : 0 h 0 m 0 sec
+
+
+# No gaps found. This is a contig set.
+
+# Generate polished_2.fasta.fai
+
+# Get gaps
+Processing file polished_2.fasta
+Into polished_2.gaps
+Total number of gaps: 0
+Running time : 0 h 0 m 0 sec
+
+
+# No gaps found. This is a contig set.
+
+# Convert bench.polished_1.100_20000.phased_block.bed to sizes
+ Result saved as bench.polished_1.100_20000.phased_block.sizes
+
+# Plot bench.polished_1.100_20000.phased_block.bed
+Rscript /public/home/hpc224712204/software/merqury/plot/plot_block_N.R -b bench.polished_1.100_20000.phased_block.sizes -c bench.polished_1.contig.sizes  -o bench.polished_1 
+载入需要的程辑包：argparse
+Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  不存在叫‘argparse’这个名字的程辑包
+载入需要的程辑包：ggplot2
+载入需要的程辑包：scales
+Error in ArgumentParser(description = "Make block N* or NG* plots. Applicable for scaffolds, contigs, and phased blocks.") : 
+  没有"ArgumentParser"这个函数
+停止执行
+
+# Convert bench.polished_2.100_20000.phased_block.bed to sizes
+ Result saved as bench.polished_2.100_20000.phased_block.sizes
+
+# Plot bench.polished_2.100_20000.phased_block.bed
+Rscript /public/home/hpc224712204/software/merqury/plot/plot_block_N.R -b bench.polished_2.100_20000.phased_block.sizes -c bench.polished_2.contig.sizes  -o bench.polished_2 
+载入需要的程辑包：argparse
+Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  不存在叫‘argparse’这个名字的程辑包
+载入需要的程辑包：ggplot2
+载入需要的程辑包：scales
+Error in ArgumentParser(description = "Make block N* or NG* plots. Applicable for scaffolds, contigs, and phased blocks.") : 
+  没有"ArgumentParser"这个函数
+停止执行
+

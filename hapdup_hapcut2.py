@@ -20,6 +20,5 @@ os.environ["PEPPER_MODEL_DIR"] = os.path.join(hap_dup_root, "pepper_models")
 os.environ["MARGIN_CONFIG_DIR"] = os.path.join(hap_dup_root, "submodules", "margin", "params", "phase")
 
 #entry point
-#from hapdup.main import main
 from hapdup.main_hapcut2 import main
 sys.exit(main())

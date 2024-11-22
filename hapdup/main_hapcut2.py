@@ -25,24 +25,12 @@ PEPPER_VARIANT = "pepper_variant"
 EXTRACT_HAIRS="/public/home/hpc224712204/software/HapCUT2/build/extractHAIRS"
 HAPCUT2="/public/home/hpc224712204/software/HapCUT2/build/HAPCUT2"
 WHATSHAP="/public/home/hpc224712204/miniconda3/envs/whatshap-env/bin/whatshap"
-SINGULARITY="/public/software/singularity/bin/singularity"
-MARGIN_MIRROR="/public/home/hpc224712204/software/margin_mirror/pepper_deepvariant_r0.8.sif"
 
 PEPPER_MODEL_DIR = os.environ["PEPPER_MODEL_DIR"]
 PEPPER_MODEL = {"hifi" : os.path.join(PEPPER_MODEL_DIR, "PEPPER_VARIANT_HIFI_V7.pkl"),
                  "ont" : os.path.join(PEPPER_MODEL_DIR, "PEPPER_VARIANT_ONT_R941_GUPPY5_SUP_V7.pkl"),
                  "ont_r10" : os.path.join(PEPPER_MODEL_DIR, "PEPPER_VARIANT_ONT_R10_Q20_V7.pkl")}
 
-MARGIN_CONFIG_DIR = "/public/home/hpc224712204/software/hapdup/submodules/margin/params/phase"
-MARGIN_CONFIG = {"hifi" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.pb-hifi.hapDup.json"),
-                 "ont" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.ont-r94g507.hapDup.filter.json"),
-                 "ont_r10" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.ont-r94g507.hapDup.filter.json")}
-MARGIN_ONLY_SNV_CONFIG = {"hifi" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.pb-hifi.hapDup.json"),
-                 "ont" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.ont-r94g507.hapDup.json"),
-                 "ont_r10" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.ont-r94g507.hapDup.json")}
-MARGIN_FILTER_CONFIG = {"hifi" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.pb-hifi.hapDup.json"),
-                 "ont" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.ont-r94g507.hapDup.filter.json"),
-                 "ont_r10" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.ont-r94g507.hapDup.filter.json")}
 
 logger = logging.getLogger()
 
@@ -115,15 +103,13 @@ def main():
     parser.add_argument("-v", "--version", action="version", version=_version())
 
     # additional
-    parser.add_argument("--use-filter-all", dest="use_filter_all",
+    parser.add_argument("--use-filter", dest="use_filter",
                         default=False, action="store_true",
                         help="Use consistency to filter SNP and INDEL")
     parser.add_argument("--use-filter-indel", dest="use_filter_indel",
                         default=False, action="store_true",
                         help="Use consistency to filter INDEL, and remain SNP")
-    parser.add_argument("--phasing", dest="phasing",
-                        default=False, action="store_true",
-                        help="Only phasing, not polish or assembly")
+
     parser.add_argument("--only-snvs", dest="only_snvs",
                         default=False, action="store_true",
                         help="Only use snv to phasing")
@@ -137,7 +123,9 @@ def main():
     parser.add_argument("--bench-qual", dest="bench_qual",
                         default=False, action="store_true",
                         help="Filter vcf by qual 10.")
-
+    parser.add_argument("--phasing", dest="phasing",
+                        default=False, action="store_true",
+                        help="Only phasing, not polish or assembly")
 
     args = parser.parse_args()
 
@@ -149,8 +137,8 @@ def main():
     if not os.path.isdir(args.out_dir):
         os.mkdir(args.out_dir)
 
-    # if args.use_filter_indel:
-    #    args.use_filter = True
+    if args.use_filter_indel:
+        args.use_filter = True
 
     if args.rtype not in ["ont", "hifi", "ont_r10"]:
         print("Reads type could be not in ['ont' 'hifi' 'ont_r10']", file=sys.stderr)
@@ -180,12 +168,11 @@ def main():
     pepper_vcf = os.path.abspath(os.path.join(pepper_dir, "PEPPER_VARIANT_FULL.vcf"))
 
     hapcut2_dir = os.path.join(args.out_dir, "hapcut2")
-    margin_dir = os.path.join(args.out_dir, "margin")
-    haplotagged_bam = os.path.join(margin_dir, "MARGIN_PHASED") + ".haplotagged.bam"
-    phased_blocks_bed = os.path.join(margin_dir, "MARGIN_PHASED") + ".phaseset.bed"
+    haplotagged_bam = os.path.join(hapcut2_dir, "HAPCUT2_PHASED") + ".haplotagged.bam"
+    # phased_blocks_bed = os.path.join(margin_dir, "HAPCUT2_PHASED") + ".phaseset.bed"
 
     polished_flye_hap = {1 : os.path.join(args.out_dir, "flye_hap_1", "polished_1.fasta"),
-                         2 : os.path.join(args.out_dir, "flye_hap_2", "polished_1.fasta")}
+                         2 : os.path.join(args.out_dir, "flye_hap_2", "polished_2.fasta")}
 
     structural_dir = os.path.join(args.out_dir, "structural")
     inversions_bed = os.path.join(structural_dir, "inversions.bed")
@@ -262,83 +249,121 @@ def main():
 
     #STAGE 3: Phase with HapCUT2
     if os.path.isfile(haplotagged_bam) and not overwrite:
-        logger.info("Skipped margin phase")
+        logger.info("Skipped hapcut2 phase")
     else:
-        hapcut2_log = os.path.join(margin_dir, "hapcut2.log")
-        margin_log = os.path.join(margin_dir, "margin.log")
-        if not os.path.isdir(margin_dir):
-            os.mkdir(margin_dir)
+        hapcut2_log = os.path.join(hapcut2_dir, "hapcut2.log")
         if not os.path.isdir(hapcut2_dir):
             os.mkdir(hapcut2_dir)
 
-        if not args.use_filter_all and not args.use_filter_indel:
-            margin_input_vcf = pepper_vcf
+        if not args.use_filter:
+            hapcut2_input_vcf = pepper_vcf
         else:
             logger.info("Use consistency filter")
-            margin_input_vcf = f"{pepper_vcf}.filtered"
+            hapcut2_input_vcf = f"{pepper_vcf}.filtered"
 
             # subprocess.check_call(f"rm -rf {tmp_dir}/*", shell=True)
 
             # Filter variant by consistency
-            logger.info("Filtering (mp mode)")
-            run_hapcut2_filter_multiprocess(os.path.abspath(args.assembly), os.path.abspath(filtered_bam), pepper_vcf, margin_input_vcf, tmp_dir,
-                                        args.only_snvs, args.rtype, int(args.threads), FILTER_SNP=args.use_filter_all)
+            if args.use_multiprocess:
+                logger.info("Filtering (mp mode)")
+                run_hapcut2_filter_multiprocess(os.path.abspath(args.assembly), os.path.abspath(filtered_bam), pepper_vcf, hapcut2_input_vcf, tmp_dir,
+                                        args.only_snvs, args.rtype, int(args.threads), FILTER_SNP=(not args.use_filter_indel))
+            else:
+                extract_hairs_cmd = [EXTRACT_HAIRS, "--indels", str(bool_to_int(not args.only_snvs)), "--ont", str(bool_to_int(args.rtype == "ont")),
+                                     "--bam", os.path.abspath(filtered_bam), "--VCF", pepper_vcf,
+                                     "--out", os.path.abspath(os.path.join(tmp_dir, "fragment_file")),
+                                     "--ref", os.path.abspath(args.assembly),
+                                     "2>&1", "|tee", hapcut2_log]
+
+                if os.path.isfile(os.path.abspath(os.path.join(tmp_dir, "fragment_file"))) and not overwrite:
+                    logger.info("Skipped extract_hairs(filtering)")
+                else:
+                    logger.info("Running: %s (filtering)", " ".join(extract_hairs_cmd))
+                    subprocess.check_call(" ".join(extract_hairs_cmd), shell=True)
+                file_check(os.path.abspath(os.path.join(tmp_dir, "fragment_file")))
+
+                logger.info("Filtering by consistency")
+                logger.info(f"ONLY FILTER INDEL: {args.use_filter_indel}")
+                logger.info(f"FILTER SNP: {not args.use_filter_indel}")
+                filter_main(pepper_vcf, os.path.abspath(os.path.join(tmp_dir, "fragment_file")), hapcut2_input_vcf, tmp_dir, FILTER_SNP=(not args.use_filter_indel))
 
             if args.bench_snvs:
                 logger.info("Only phasing filtered snp (bench)")
                 from hapdup.filter_indel_in_vcf import output_vcf_file_by_positions_only_snp
-                output_vcf_file_by_positions_only_snp(margin_input_vcf, f"{pepper_vcf}.filtered.bench.snv")
+                output_vcf_file_by_positions_only_snp(hapcut2_input_vcf, f"{pepper_vcf}.filtered.bench.snv")
 
-                margin_input_vcf = f"{pepper_vcf}.filtered.bench.snv"
+                hapcut2_input_vcf = f"{pepper_vcf}.filtered.bench.snv"
 
 
-        # gzip_vcf(margin_input_vcf)
+        gzip_vcf(hapcut2_input_vcf)
+        PHASED_VCF = os.path.abspath(os.path.join(hapcut2_dir, "haplotype_output_file.phased.VCF"))
+        PHASED_VCF_GZ = os.path.abspath(os.path.join(hapcut2_dir, "haplotype_output_file.phased.VCF.gz"))
 
-        logger.info(f"HapCUT2 input vcf: {margin_input_vcf}")
+        subprocess.check_call(f"rm -rf {tmp_dir}/*", shell=True)
+        logger.info(f"HapCUT2 input vcf: {hapcut2_input_vcf}")
+        subprocess.check_call(f"rm -rf {tmp_dir}/*", shell=True)
+        #  HapCUT2 phasing
+        if args.use_multiprocess:
+            run_hapcut2_multiprocess(os.path.abspath(args.assembly), os.path.abspath(filtered_bam), hapcut2_input_vcf, PHASED_VCF, tmp_dir,
+                                     args.only_snvs, args.rtype, int(args.threads))
+        else:
+            FRAGMENT_FILE=os.path.abspath(os.path.join(hapcut2_dir, "fragment_file"))
+            extract_hairs_cmd = [EXTRACT_HAIRS, "--indels", str(bool_to_int(not args.only_snvs)), "--ont", str(bool_to_int(args.rtype == "ont")),
+                                 "--bam", os.path.abspath(filtered_bam), "--VCF", hapcut2_input_vcf,
+                                 "--out", os.path.abspath(os.path.join(hapcut2_dir, "fragment_file")),
+                                 "--ref", os.path.abspath(args.assembly),
+                                 "2>&1", "|tee", hapcut2_log]
+            logger.info("Running: %s", " ".join(extract_hairs_cmd))
+            subprocess.check_call(" ".join(extract_hairs_cmd), shell=True)
+            file_check(FRAGMENT_FILE)
 
-        #  MARGIN phasing
-        if args.use_filter_all and args.only_snvs:
-            logger.error("args.use_filter_all and args.only_snvs all True")
-        PARAM_FILE=MARGIN_CONFIG[args.rtype]
-        if args.use_filter_all:
-            PARAM_FILE=MARGIN_FILTER_CONFIG[args.rtype]
-        if args.only_snvs:
-            PARAM_FILE=MARGIN_ONLY_SNV_CONFIG[args.rtype]
+            hapcut2_phase_cmd = [HAPCUT2, "--outvcf", "1", "--fragments", FRAGMENT_FILE, "--VCF", hapcut2_input_vcf,
+                                 "--output", os.path.abspath(os.path.join(hapcut2_dir, "haplotype_output_file")),
+                                 "2>&1", "|tee", hapcut2_log]
+            logger.info("Running: %s", " ".join(hapcut2_phase_cmd))
+            subprocess.check_call(" ".join(hapcut2_phase_cmd), shell=True)
 
-        margin_cmd = [SINGULARITY, "run", MARGIN_MIRROR, "margin phase", os.path.abspath(filtered_bam), os.path.abspath(args.assembly), margin_input_vcf,
-                      PARAM_FILE,
-                      "-t", str(args.threads), "-o", os.path.abspath(os.path.join(margin_dir, "MARGIN_PHASED")),
-                      "2>&1", "|tee", margin_log]
-        logger.info("Running: %s", " ".join(margin_cmd))
-        subprocess.check_call(" ".join(margin_cmd), shell=True)
+
+        subprocess.check_call(f"bgzip -c {PHASED_VCF} > {PHASED_VCF_GZ}", shell=True)
+        subprocess.check_call(f"tabix -p vcf -f {PHASED_VCF_GZ}", shell=True)
+        file_check(PHASED_VCF)
+        file_check(PHASED_VCF_GZ)
+
+        if args.phasing:
+            sys.exit(0)        
+
+        whatshap_haplotag_cmd = [WHATSHAP, "haplotag", "--ignore-read-groups", "--output-threads", str(args.threads), "-o", os.path.abspath(haplotagged_bam),
+                                 "--reference", os.path.abspath(args.assembly), PHASED_VCF_GZ, os.path.abspath(filtered_bam)]
+        logger.info("Running: %s", " ".join(whatshap_haplotag_cmd))
+        subprocess.check_call(" ".join(whatshap_haplotag_cmd), shell=True)
+        logger.info("Running: %s", f"samtools sort -@ {args.threads} -O BAM -o {haplotagged_bam} {haplotagged_bam}")
+        subprocess.check_call(f"samtools sort -@ {args.threads} -O BAM -o {haplotagged_bam} {haplotagged_bam}", shell=True)
         file_check(haplotagged_bam)
         #subprocess.call("rm " + os.path.abspath(filtered_bam), shell=True)
 
-        index_cmd = [SAMTOOLS, "index", "-@", str(args.threads), haplotagged_bam]
+        index_cmd = [SAMTOOLS, "index", "-@4", haplotagged_bam]
         logger.info("Running: %s", " ".join(index_cmd))
         subprocess.check_call(" ".join(index_cmd), shell=True)
         overwrite = True
-    if args.phasing:
-        sys.exit(0)
+
     #STAGE 4: polish haplotypes with Flye
     if all(map(os.path.isfile, polished_flye_hap.values())) and not overwrite:
         logger.info("Skipped Flye phase")
     else:
-        def run_flye_hp(_hp):
-            _threads = max(1, int(args.threads) // 2)
-            flye_out = os.path.join(args.out_dir, "flye_hap_{0}".format(_hp))
+        def run_flye_hp(hp):
+            threads = max(1, int(args.threads) // 2)
+            flye_out = os.path.join(args.out_dir, "flye_hap_{0}".format(hp))
 
-            _reads_arg = None
+            reads_arg = None
             if args.rtype == "ont":
-                _reads_arg = "--nano-raw"
+                reads_arg = "--nano-raw"
             elif args.rtype == "hifi":
-                _reads_arg = "--pacbio-hifi"
+                reads_arg = "--pacbio-hifi"
             elif args.rtype == "ont_r10":
-                _reads_arg = "--nano-hq"
+                reads_arg = "--nano-hq"
+            hp_string = "0,{}".format(hp) if args.use_unphased else str(hp)
 
-            hp_string = "0,{}".format(_hp) if args.use_unphased else str(_hp)
-
-            flye_cmd = [FLYE, "--polish-target", os.path.abspath(args.assembly), _reads_arg,  haplotagged_bam, "-t", str(_threads),
+            flye_cmd = [FLYE, "--polish-target", os.path.abspath(args.assembly), reads_arg,  haplotagged_bam, "-t", str(threads),
                         "-o", flye_out, "--polish-haplotypes", hp_string, f"2>{args.out_dir}/flye.err.log"]
             logger.info("Running: %s", " ".join(flye_cmd))
             subprocess.check_call(" ".join(flye_cmd), shell=True)
@@ -352,7 +377,7 @@ def main():
         overwrite = True
 
     #STAGE 5: structural polishing
-
+    '''
     if not os.path.isdir(structural_dir):
         os.mkdir(structural_dir)
     logger.info("Finding breakpoints")
@@ -377,6 +402,7 @@ def main():
 
         apply_inversions(inversions_hp, polished_flye_hap[hp], final_dual_asm[hp], hp)
         cut_phased_blocks(phased_blocks_hp, final_dual_asm[hp], final_phased_asm[hp])
+        '''
 
 
 if __name__ == "__main__":
