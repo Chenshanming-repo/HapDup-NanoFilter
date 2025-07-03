@@ -33,19 +33,7 @@ The output directory will contain:
 * `phased_blocks_hp{1,2}.bed` - phased blocks coordinates (in dual assmeblies)
 * `hapdup_phased_{1,2}.fasta` - haplotype-resolved assmebly
 
-## Installation & Dependencies
-
-The script can be run like this:
-
-### 1. Run from Source Code
-
-Dependencies:
-
-- Python 3.x
-- `HapCUT2`
-- Libraries specified in `environment.yml`
-
-#### Installation Steps:
+## Installation 
 
 ```bash
 git clone https://github.com/Chenshanming-repo/HapDup-NanoFilter.git
