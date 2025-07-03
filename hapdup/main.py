@@ -18,22 +18,21 @@ from hapdup.MultiStepConsistencyAnalysisHapDup import filter_main
 from hapdup.__version__ import __version__
 
 FLYE = "flye"
-# SAMTOOLS = "flye-samtools"
-SAMTOOLS = "samtools"
+SAMTOOLS = "flye-samtools"
 MINIMAP = "flye-minimap2"
 PEPPER_VARIANT = "pepper_variant"
-EXTRACT_HAIRS="/public/home/hpc224712204/software/HapCUT2/build/extractHAIRS"
-HAPCUT2="/public/home/hpc224712204/software/HapCUT2/build/HAPCUT2"
-WHATSHAP="/public/home/hpc224712204/miniconda3/envs/whatshap-env/bin/whatshap"
-SINGULARITY="/public/software/singularity/bin/singularity"
-MARGIN_MIRROR="/public/home/hpc224712204/software/margin_mirror/pepper_deepvariant_r0.8.sif"
+EXTRACT_HAIRS="extractHAIRS"
+HAPCUT2="HAPCUT2"
+MARGIN = "margin"
 
 PEPPER_MODEL_DIR = os.environ["PEPPER_MODEL_DIR"]
 PEPPER_MODEL = {"hifi" : os.path.join(PEPPER_MODEL_DIR, "PEPPER_VARIANT_HIFI_V7.pkl"),
                  "ont" : os.path.join(PEPPER_MODEL_DIR, "PEPPER_VARIANT_ONT_R941_GUPPY5_SUP_V7.pkl"),
                  "ont_r10" : os.path.join(PEPPER_MODEL_DIR, "PEPPER_VARIANT_ONT_R10_Q20_V7.pkl")}
-
-MARGIN_CONFIG_DIR = "/public/home/hpc224712204/software/hapdup/submodules/margin/params/phase"
+MARGIN_CONFIG_DIR = os.environ["MARGIN_CONFIG_DIR"]
+#MARGIN_CONFIG = {"hifi" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.pb-hifi.hapDup.json"),
+#
+#MARGIN_CONFIG_DIR = "/public/home/hpc224712204/software/hapdup/submodules/margin/params/phase"
 MARGIN_CONFIG = {"hifi" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.pb-hifi.hapDup.json"),
                  "ont" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.ont-r94g507.hapDup.filter.json"),
                  "ont_r10" : os.path.join(MARGIN_CONFIG_DIR, "allParams.haplotag.ont-r94g507.hapDup.filter.json")}
@@ -305,7 +304,7 @@ def main():
         if args.only_snvs:
             PARAM_FILE=MARGIN_ONLY_SNV_CONFIG[args.rtype]
 
-        margin_cmd = [SINGULARITY, "run", MARGIN_MIRROR, "margin phase", os.path.abspath(filtered_bam), os.path.abspath(args.assembly), margin_input_vcf,
+        margin_cmd = [MARGIN, "phase", os.path.abspath(filtered_bam), os.path.abspath(args.assembly), margin_input_vcf,
                       PARAM_FILE,
                       "-t", str(args.threads), "-o", os.path.abspath(os.path.join(margin_dir, "MARGIN_PHASED")),
                       "2>&1", "|tee", margin_log]
