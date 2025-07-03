@@ -1,9 +1,9 @@
 [![DOI](https://zenodo.org/badge/892613239.svg)](https://doi.org/10.5281/zenodo.15354949)
-# NanoFilter
+# HapDup-NanoFilter
 
 ## Overview
 
-This software is a modification version of Hapdup which integrates with NanoFilter.
+This software is a modification version of HapDup which integrates with NanoFilter.
 
 ## Usage
 
