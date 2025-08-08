@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/892613239.svg)](https://doi.org/10.5281/zenodo.15354949)
+[![DOI](https://zenodo.org/badge/892602566.svg)](https://doi.org/10.5281/zenodo.16777890)
 # HapDup-NanoFilter
 
 ## Overview
